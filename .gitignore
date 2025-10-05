@@ -1,0 +1,25 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfplan
+crash.log
+.terraform.lock.hcl
+
+# binaries / OS / editors
+*.exe
+*.zip
+*.tar.gz
+.DS_Store
+*.swp
+*.swo
+
+# SSH / keys / sensitive files
+*.pem
+*.ppk
+*.key
+*.pub
+
+# optional: ignore local credentials files
+*.azurepub
