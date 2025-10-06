@@ -17,6 +17,11 @@ resource "azurerm_subnet_network_security_group_association" "this" {
   network_security_group_id = var.nsg_id
 }
 
+resource "azurerm_subnet_network_security_group_association" "this" {
+  subnet_id                 = azurerm_subnet.this.id
+  network_security_group_id = var.nsg_id
+}
+
 output "vnet_id" {
   value = azurerm_virtual_network.this.id
 }
