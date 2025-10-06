@@ -6,11 +6,16 @@ resource "azurerm_virtual_network" "this" {
 }
 
 resource "azurerm_subnet" "this" {
-  name                 = var.subnet_name
+  name                  = var.subnet_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.this.name
   address_prefixes     = [var.subnet_address_prefix]
+
+  depends_on = [
+    azurerm_subnet_network_security_group_association.this
+  ]
 }
+
 
 output "vnet_id" {
   value = azurerm_virtual_network.this.id
