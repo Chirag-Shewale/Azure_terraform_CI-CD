@@ -8,8 +8,8 @@ resource "azurerm_public_ip" "main" {
 }
 
 resource "azurerm_network_interface" "main" {
-  name                = "${var.vm_name}-nic"
-  location            = var.location
+  name                 = "${var.vm_name}-nic"
+  location             = var.location
   resource_group_name = var.resource_group_name
 
   ip_configuration {
@@ -18,10 +18,6 @@ resource "azurerm_network_interface" "main" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = var.create_public_ip ? azurerm_public_ip.main[0].id : null
   }
-
-    depends_on = [
-    azurerm_linux_virtual_machine.example
-  ]
 }
 
 resource "azurerm_network_interface_security_group_association" "main" {
@@ -54,5 +50,8 @@ resource "azurerm_linux_virtual_machine" "example" {
     username   = var.ssh_username
     public_key = file(var.ssh_public_key_path)
   }
-}
 
+  depends_on = [
+    azurerm_network_interface.main
+  ]
+}
