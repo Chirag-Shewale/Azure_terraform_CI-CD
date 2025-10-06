@@ -1,6 +1,6 @@
 resource "azurerm_network_security_group" "this" {
-  name                = var.nsg_name
-  location            = var.region
+  name                 = var.nsg_name
+  location             = var.region
   resource_group_name = var.resource_group_name
 
   security_rule {
@@ -15,3 +15,4 @@ resource "azurerm_network_security_group" "this" {
     destination_address_prefix = "*"
   }
 }
+
