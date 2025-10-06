@@ -6,7 +6,7 @@ module "vnet" {
   vnet_address_space  = var.vnet_address_space
   subnet_name         = var.subnet_name
   subnet_address_prefix = var.subnet_address_prefix
-  nsg_id                = azurerm_network_security_group.main.id
+  nsg_id                = module.nsg.nsg_id
 }
 
 module "nsg" {
