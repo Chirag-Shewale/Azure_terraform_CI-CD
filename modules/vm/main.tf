@@ -18,6 +18,10 @@ resource "azurerm_network_interface" "main" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = var.create_public_ip ? azurerm_public_ip.main[0].id : null
   }
+
+    depends_on = [
+    azurerm_linux_virtual_machine.example
+  ]
 }
 
 resource "azurerm_network_interface_security_group_association" "main" {
