@@ -3,6 +3,7 @@ resource "azurerm_virtual_network" "this" {
   location            = var.region
   resource_group_name = var.resource_group_name
   address_space       = var.vnet_address_space
+  network_security_group_id = var.nsg_id
 }
 
 resource "azurerm_subnet" "this" {
