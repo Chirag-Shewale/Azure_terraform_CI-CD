@@ -1,8 +1,8 @@
 resource "azurerm_virtual_network" "this" {
-  name                = var.vnet_name
-  location            = var.region
-  resource_group_name = var.resource_group_name
-  address_space       = var.vnet_address_space
+  name                 = var.vnet_name
+  location             = var.region
+  resource_group_name  = var.resource_group_name
+  address_space        = var.vnet_address_space
 }
 
 resource "azurerm_subnet" "this" {
@@ -10,11 +10,6 @@ resource "azurerm_subnet" "this" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.this.name
   address_prefixes     = [var.subnet_address_prefix]
-}
-
-resource "azurerm_subnet_network_security_group_association" "this" {
-  subnet_id                 = azurerm_subnet.this.id
-  network_security_group_id = var.nsg_id
 }
 
 resource "azurerm_subnet_network_security_group_association" "this" {
