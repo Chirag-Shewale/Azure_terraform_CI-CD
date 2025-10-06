@@ -7,6 +7,10 @@ variable "environment" {
   type        = string
   description = "Deployment environment"
 }
+variable "nsg_id" {
+  description = "The ID of the Network Security Group to associate with the subnet"
+  type        = string
+}
 
 variable "region" {
   type        = string
