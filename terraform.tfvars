@@ -13,7 +13,7 @@ resource_group_name   = "tf-backend-rg"
 subnet_id             = "<subnet_id_from_vnet_module>"
 nsg_id                = "<nsg_id_from_nsg_module>"
 ssh_username          = "azureuser"
-ssh_public_key_path   = "C:/Users/shewalec/Downloads/project_key.pem"
+ssh_public_key_path   = "/var/lib/jenkins/project_key.pub"
 create_public_ip      = true
 
 vm_image_details = {
