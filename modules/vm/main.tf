@@ -23,10 +23,6 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_network_interface_security_group_association" "main" {
   network_interface_id      = azurerm_network_interface.main.id
   network_security_group_id = var.nsg_id
-
-  depends_on = [
-    azurerm_linux_virtual_machine.example
-  ]
 }
 
 
